@@ -15,8 +15,8 @@
     "logseq-dateutils": "^0.0.26"
   },
   "logseq": {
-    "id": "template-js",
-    "title": "template-js",
+    "id": "logseq-plugin-template-js",
+    "title": "logseq-plugin-template-js",
     "icon": "./icon.svg"
   },
   "devDependencies": {
