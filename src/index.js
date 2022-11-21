@@ -4,7 +4,7 @@ import { getDateForPage } from 'logseq-dateutils';
 const main = () => {
   
   logseq.UI.showMsg(`add contextmenu item`);
-  
+
   /* ContextMenuItem for DONE */
   logseq.Editor.registerBlockContextMenuItem('✔️ DONE with completed', async ({uuid}) => {
     const block = await logseq.Editor.getBlock(uuid);
@@ -29,11 +29,11 @@ const main = () => {
       const today = new Date();
       const todayDateInUserFormat = getDateForPage(today, preferredDateFormat);
       console.log(todayDateInUserFormat);
-      logseq.Editor.insertBlock(uuid,
+      const insertObj = await logseq.Editor.insertBlock(uuid,
         `🔵🟣 ((`+uuid+`))` + "\n" + "referenced:: " + todayDateInUserFormat
       );
-      logseq.Editor.setBlockCollapsed(uuid, true);
-      logseq.UI.showMsg("Link as reference");
+      logseq.App.openInRightSidebar(insertObj.uuid);
+      logseq.UI.showMsg("🔵🟣 Mouse drag the block to move it to the journal.");
       console.log("Link as reference");
     });
 
@@ -46,31 +46,12 @@ const main = () => {
       const today = new Date();
       const todayDateInUserFormat = getDateForPage(today, preferredDateFormat);
       console.log(todayDateInUserFormat);
-      logseq.Editor.insertBlock(uuid,`LATER 🔵🟣 ((`+uuid+`))`);
-      logseq.Editor.upsertBlockProperty(e.uuid, "referenced",todayDateInUserFormat);
-      logseq.UI.showMsg("🔵🟣LATER as reference");
+      const insertObj = await logseq.Editor.insertBlock(uuid,`LATER 🔵🟣 ((`+uuid+`))`);
+      /* logseq.Editor.upsertBlockProperty(uuid, "referenced",todayDateInUserFormat); */
+      logseq.App.openInRightSidebar(insertObj.uuid);
+      logseq.UI.showMsg("🔵🟣 Mouse drag the block to move it to the journal.");
       console.log("🔵🟣LATER as reference");
     });
-
-  /* ContextMenuItem for repeat-task */
-  logseq.Editor.registerBlockContextMenuItem('🔵🟣LATER as reference for repeat-task', async ({uuid}) => {
-    const block = await logseq.Editor.getBlock(uuid);
-    if (!(block?.marker == "TODO")) return logseq.UI.showMsg('This block is not TODO task', 'error');
-      const userConfigs = await logseq.App.getUserConfigs();
-      const preferredDateFormat = userConfigs.preferredDateFormat;
-      const today = new Date();
-      const todayDateInUserFormat = getDateForPage(today, preferredDateFormat);
-      console.log(todayDateInUserFormat);
-      const newRawContent = block.content.replace(new RegExp(`^${block.marker}`), `DONE`);
-      await logseq.Editor.updateBlock(uuid, newRawContent);
-      logseq.UI.showMsg(`${block.marker} → DONE`);
-      logseq.Editor.insertBlock(uuid,
-        `LATER 🔵🟣 ((`+uuid+`))` + "\n" + "referenced:: " + todayDateInUserFormat
-      );
-      logseq.Editor.setBlockCollapsed(uuid, true);
-      logseq.UI.showMsg("🔵🟣for repeat-task");
-      console.log("🔵🟣for repeat-task");
-  });
 
   /* ContextMenuItem Delete */
   logseq.Editor.registerBlockContextMenuItem('❌ Delete this block', async ({ uuid }) => {
@@ -78,6 +59,7 @@ const main = () => {
     logseq.UI.showMsg("delete the block");
     console.log("delete the block");
   });
+
 
   /* CSS */
   logseq.provideStyle(String.raw`
