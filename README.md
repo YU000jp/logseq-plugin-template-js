@@ -20,7 +20,7 @@
  1. Have Logseq load the plugin in developer mode.
  1. Release with a tag like v.1.0.0 on your repository on Github. It takes about a minute for Github CI to finish working. Then two are added to the asset.
 
-## how to publish
+## How to publish
  - Once the plugin is complete, publish it to Logseq marketplace.
  1. Fork logseq/marketplace repository. https://github.com/logseq/marketplace
  1. In your forked repository, upload the required folders to `package` directory. 
