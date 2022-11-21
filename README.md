@@ -1,7 +1,7 @@
 🚩plugin-template
 
 # logseq-plugin-template-js
- - Logseq plugins are mostly written in Typescript. It's not easy for beginners to learn, so I think it's better to learn Javascript in the beginning.
+ - Logseq plugins are mostly written in Typescript. It's not easy for beginners to learn, so I think it's better to learn **Javascript** in the beginning. Customize Logseq using `@logseq/libs`.
 
 ## Required environment
 1. GitHub desktop client https://desktop.github.com/
