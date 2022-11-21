@@ -10,19 +10,23 @@
 1. node.js https://pnpm.io/ja/cli/env
 
 
-## How to
+## How to use
  1. Clone this repository on GitHub desktop client
- 1. Rewrite `LICENSE.md` and `package.json`
- 1. Launch a terminal. Run `pnpm install` from the same folder as the repository.
+ 1. Edit few items `LICENSE.md` and `package.json` on Visual Studio Code
+ 1. Launch a terminal by contextmenu from the same folder as the repository. Run `pnpm install`.
  1. Modules is installed and the development environment is ready.
  1. Edit the main script `src/index.js`
  1. Build the plugin `pnpm build`
  1. Have Logseq load the plugin in developer mode.
- 1. Once the plugin is complete, publish it to Logseq marketplace. 
-    1. Release with a tag like v.1.0.0 on the Github repository.
-    1. Fork logseq/marketplace repository on Github. https://github.com/logseq/marketplace
-    1. In your forked repository, upload the required folders to `package` directory. 
-    1. Make a pull request. After posting, wait a few days for a response.
+
+## how to publish
+ - Once the plugin is complete, publish it to Logseq marketplace. 
+ 1. Release with a tag like v.1.0.0 on your repository on Github.
+ 1. Fork logseq/marketplace repository. https://github.com/logseq/marketplace
+ 1. In your forked repository, upload the required folders to `package` directory. 
+    - `manifest.json` https://github.com/logseq/marketplace/blob/master/packages/logseq-dev-theme/manifest.json
+    - `icon.png` or other `icon.svg`
+ 1. Make a pull request. After posting, wait a few days for a response. They are checked, merged and published.
 
 ## Imported SDK
  - @logseq/libs https://logseq.github.io/plugins/
