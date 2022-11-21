@@ -15,8 +15,13 @@
  1. Rewrite `LICENSE.md` and `package.json`
  1. Launch a terminal. Run `pnpm install` from the same folder as the repository.
  1. Modules is installed and the development environment is ready.
+ 1. Edit the main script `src/index.js`
  1. Build the plugin `pnpm build`
  1. Have Logseq load the plugin in developer mode.
+
+## Imported SDK
+ - @logseq/libs https://logseq.github.io/plugins/
+ - logseq-dateutils https://github.com/hkgnp/logseq-dateutils
 
 ## Credit
  - https://github.com/hkgnp/logseqplugin-basic-template
