@@ -18,6 +18,11 @@
  1. Edit the main script `src/index.js`
  1. Build the plugin `pnpm build`
  1. Have Logseq load the plugin in developer mode.
+ 1. Once the plugin is complete, publish it to Logseq marketplace. 
+    1. Release with a tag like v.1.0.0 on the Github repository.
+    1. Fork logseq/marketplace repository on Github. https://github.com/logseq/marketplace
+    1. In your forked repository, upload the required folders to `package` directory. 
+    1. Make a pull request. After posting, wait a few days for a response.
 
 ## Imported SDK
  - @logseq/libs https://logseq.github.io/plugins/
