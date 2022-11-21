@@ -2,7 +2,9 @@ import '@logseq/libs';
 import { getDateForPage } from 'logseq-dateutils';
 
 const main = () => {
+  
   logseq.UI.showMsg(`add contextmenu item`);
+  
   /* ContextMenuItem for DONE */
   logseq.Editor.registerBlockContextMenuItem('✔️ DONE with completed', async ({uuid}) => {
     const block = await logseq.Editor.getBlock(uuid);
