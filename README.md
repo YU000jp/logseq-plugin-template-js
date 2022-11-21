@@ -11,13 +11,15 @@
 
 
 ## How to use
- 1. Clone this repository on GitHub desktop client
+ 1. Select [Use this template] → [Create a new repository]
+ 1. Clone the repository on GitHub desktop client
  1. Edit few items `LICENSE.md` and `package.json` on Visual Studio Code
  1. Launch a terminal by contextmenu from the same folder as the repository. Run `pnpm install`
  1. Modules is installed and the development environment is ready.
  1. Edit the main script `src/index.js`
  1. Build the plugin. Run `pnpm build`
  1. Have Logseq load the plugin in developer mode.
+ 1. Commit to the Github repo on GitHub desktop client.
  1. Release with a tag like v.1.0.0 on your repository on Github. It takes about a minute for Github CI to finish working. Then two are added to the asset.
 
 ## How to publish
