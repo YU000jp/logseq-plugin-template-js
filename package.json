@@ -1,0 +1,30 @@
+{
+  "name": "repeat-task-reference",
+  "description": "Take a reference to a repeat task. It records when you run it.",
+  "main": "dist/index.html",
+  "sponsors": [
+    "https://www.buymeacoffee.com/yu000japan"
+  ],
+  "repository": "https://github.com/YU000jp/logseq-repeat-task-reference",
+  "targets": {
+    "main": false
+  },
+  "scripts": {
+    "build": "parcel build --no-source-maps src/index.html --public-url ./"
+  },
+  "keywords": [],
+  "author": "YU000jp",
+  "license": "MIT",
+  "dependencies": {
+    "@logseq/libs": "latest",
+    "logseq-dateutils": "^0.0.26"
+  },
+  "logseq": {
+    "id": "repeat-task-reference",
+    "title": "repeat-task-reference",
+    "icon": "./icon.svg"
+  },
+  "devDependencies": {
+    "parcel": "latest"
+  }
+}
