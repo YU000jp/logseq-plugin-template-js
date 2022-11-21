@@ -29,9 +29,8 @@ const main = () => {
       const today = new Date();
       const todayDateInUserFormat = getDateForPage(today, preferredDateFormat);
       console.log(todayDateInUserFormat);
-      const insertObj = await logseq.Editor.insertBlock(uuid,
-        `🔵🟣 ((`+uuid+`))` + "\n" + "referenced:: " + todayDateInUserFormat
-      );
+      const insertObj = await logseq.Editor.insertBlock(uuid,`🔵🟣 ((`+uuid+`))`);
+      logseq.Editor.upsertBlockProperty(insertObj.uuid, "referenced",todayDateInUserFormat);
       logseq.App.openInRightSidebar(insertObj.uuid);
       logseq.UI.showMsg("🔵🟣 Mouse drag the block to move it to the journal.");
       console.log("Link as reference");
