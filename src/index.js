@@ -3,13 +3,12 @@ import { getDateForPage } from 'logseq-dateutils';
 import { logseq as PL } from "../package.json";
 
 
-import { settingUI } from './settings';
+import { settingUI } from './setting';
 const pluginId = PL.id;
 
 
 /* main */
 const main = () => {
-
   settingUI(); /* -setting */
   console.info(`#${pluginId}: MAIN`); /* -plugin-id */
   logseq.UI.showMsg(`add contextmenu item`); /* test message */
@@ -105,14 +104,11 @@ const main = () => {
 
 /* dashboard */
 const model = {
-  open_dashboard() {
+  async open_dashboard() {
     const queryScript = logseq.settings.advancedQuery;
     console.log(`#${pluginId}: ${queryScript}`);
-    const QueryFunc = async () => {
-      const queryObj = await logseq.DB.datascriptQuery(queryScript); /* TODO */
-      console.log(`#` + pluginId + `: ` + queryObj);
-  } 
-  QueryFunc();
+    const queryObj = await logseq.DB.datascriptQuery(queryScript); /* TODO */
+    console.log(`#` + pluginId + `: ` + queryObj);
     logseq.UI.showMsg(`Open dashboard`);
   }
 };

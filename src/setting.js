@@ -6,10 +6,11 @@ export const settingUI = () => {
             inputAs: 'textarea',
             default: `[:find (pull ?b [*])
                     :where
-                    (task ?b #{"DOING"})]`,
-            title: "advanced Query",
+                    (task ?b #{"DOING"})
+                    ]`,
+            title: "Customize advanced-query",
             description:
-                'customize ... [:find (pull ?b [*]) :where(task ?b #{"DOING"})]',
+                'default: [:find (pull ?b [*]) :where(task ?b #{"DOING"})]',
         }
     ];
     logseq.useSettingsSchema(settingsTemplate);
