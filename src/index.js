@@ -1,9 +1,19 @@
 import '@logseq/libs';
 import { getDateForPage } from 'logseq-dateutils';
+import { logseq as PL } from "../package.json";
 
+
+import { settingUI } from './settings';
+const pluginId = PL.id;
+
+
+/* main */
 const main = () => {
-  
-  logseq.UI.showMsg(`add contextmenu item`);
+
+  settingUI(); /* -setting */
+  console.info(`#${pluginId}: MAIN`); /* -plugin-id */
+  logseq.UI.showMsg(`add contextmenu item`); /* test message */
+
 
   /* ContextMenuItem for DONE */
   logseq.Editor.registerBlockContextMenuItem('✔️ DONE with completed', async ({uuid}) => {
@@ -19,7 +29,7 @@ const main = () => {
       logseq.Editor.upsertBlockProperty(uuid, `completed`,todayDateInUserFormat);
       /* (scheduled deadline remove) -----TODO*/
       logseq.UI.showMsg(`${block.marker} → ✔️ DONE with completed`);
-      console.log("✔️ DONE with completed");
+      console.log("#${pluginId}: ✔️ DONE with completed");
   });
 
   /* ContextMenuItem reference */
@@ -33,7 +43,7 @@ const main = () => {
       logseq.Editor.upsertBlockProperty(insertObj.uuid, "referenced",todayDateInUserFormat);
       logseq.App.openInRightSidebar(insertObj.uuid);
       logseq.UI.showMsg("🔵🟣 Mouse drag the block to move it to the journal.");
-      console.log("Link as reference");
+      console.log("#${pluginId}: Link as reference");
     });
 
     /* ContextMenuItem LATER  */
@@ -56,7 +66,7 @@ const main = () => {
   logseq.Editor.registerBlockContextMenuItem('❌ Delete this block', async ({ uuid }) => {
     logseq.Editor.removeBlock(uuid);
     logseq.UI.showMsg("delete the block");
-    console.log("delete the block");
+    console.log("#${pluginId}: delete the block");
   });
 
 
@@ -81,6 +91,30 @@ const main = () => {
     }
   `);
 
+  /* toolbarItem */
+  logseq.App.registerUIItem("toolbar", {
+    key: pluginId,
+    template: `
+    <div data-on-click="open_dashboard" style="font-size:20px">🔥</div>
+    `,
+  });
+  
+  console.info(`#${pluginId}: loaded`);
 };
 
-logseq.ready(main).catch(console.error);
+
+/* dashboard */
+const model = {
+  open_dashboard() {
+    const queryScript = logseq.settings.advancedQuery;
+    console.log(`#${pluginId}: ${queryScript}`);
+    const QueryFunc = async () => {
+      const queryObj = await logseq.DB.datascriptQuery(queryScript); /* TODO */
+      console.log(`#` + pluginId + `: ` + queryObj);
+  } 
+  QueryFunc();
+    logseq.UI.showMsg(`Open dashboard`);
+  }
+};
+
+logseq.ready(model, main).catch(console.error);
