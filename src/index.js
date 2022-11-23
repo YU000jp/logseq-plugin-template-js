@@ -54,9 +54,9 @@ const model = {
   async open_dashboard() {
     console.info(`#${pluginId}: open_dashboard`);
     const queryScript = logseq.settings.advancedQuery;
-    console.log(`#${pluginId}: ${queryScript}`); /* TODO */
-
-
+    console.log(`#${pluginId}: queryScript ${queryScript}`); /* TODO */
+    const result = await logseq.DB.datascriptQuery(queryScript);
+      console.log(`#${pluginId}: result ${result}`);
     logseq.UI.showMsg(`Open dashboard`);
   }
 };
