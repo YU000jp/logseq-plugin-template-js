@@ -108,6 +108,7 @@ const model = {
     const queryScript = logseq.settings.advancedQuery;
     console.log(`#${pluginId}: ${queryScript}`);
     const queryObj = await logseq.DB.datascriptQuery(queryScript); /* TODO */
+
     console.log(`#` + pluginId + `: ` + queryObj);
     logseq.UI.showMsg(`Open dashboard`);
   }
