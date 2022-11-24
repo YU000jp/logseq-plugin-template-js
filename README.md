@@ -17,6 +17,7 @@
  1. Launch a terminal by contextmenu from the same folder as the repository. Run `pnpm install`
  1. Modules is installed and the development environment is ready.
  1. Edit the main script `src/index.js`
+ 1. switch to Electron Developer Tools on Logseq (⌨️: Windows`Ctrl+Shift+I` or Mac`Cmd+Alt+I`)
  1. Build the plugin. Run `pnpm build`
  1. Have Logseq load the plugin in developer mode.
  1. Commit to the Github repo on GitHub desktop client.
