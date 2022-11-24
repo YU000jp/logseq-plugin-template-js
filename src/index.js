@@ -1,9 +1,6 @@
 import '@logseq/libs';
 import { getDateForPage } from 'logseq-dateutils';
-import { json } from 'stream/consumers';
 import { logseq as PL } from "../package.json";
-
-
 import { settingUI } from './setting';
 const pluginId = PL.id;
 
@@ -56,28 +53,53 @@ const model = {
     console.info(`#${pluginId}: open_dashboard`);
     logseq.UI.showMsg(`Open dashboard`);
 
+    //Advanced Query
     const queryScript = logseq.settings.advancedQuery;
     console.log(`#${pluginId}: queryScript ${queryScript}`); /* TODO */
     const queryResult = await logseq.DB.datascriptQuery(queryScript);
-      console.log(`#${pluginId}: Advanced Query result`);
-      console.log(queryResult);
+    console.log(`#${pluginId}: Advanced Query result`);
+    console.log(queryResult);
     logseq.UI.showMsg(`Advanced Query`);
+
+
 
     /* JSON */
     const settingJsonUrl = logseq.settings.jsonUrl;
-    if(settingJsonUrl != ""){
-    const jsonFetch = async (url) => {
-      const response = await fetch(url); //await で fetch() が完了するまで待つ
-      const jsonData = await response.json(); //await で response.json() が完了するまで待つ
-      console.log(`#${pluginId}: JSON result`);
-      console.log(jsonData);
-      logseq.UI.showMsg(`Fetch JSON`);
-    }
-    jsonFetch(settingJsonUrl);
-  }else{
-    logseq.UI.showMsg(`プラグインの設定をおこなってください。`);
-  } 
+    if (settingJsonUrl != "") {
+      logseq.UI.showMsg(`info: 読み込みを開始しました。しばらく時間がかかります。`);//start message
+      const jsonImport = async (url) => {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        console.log(`#${pluginId}: JSON import`);
+        console.log(jsonData);
+        console.log(`jsonData No.0: ` + jsonData[0]);
 
+        //foreach JSON
+        const foreachPage = await jsonData.forEach(function (item, index) {
+          if (item.type === '') { item.type = "本"; }
+          const createPageTitle = item.type + "/" + item.title;
+          const deleteP = logseq.Editor.deletePage(createPageTitle);//no fetch
+          const createP = logseq.Editor.createPage(createPageTitle, item, {
+            createFirstBlock: true,
+            format: "markdown",
+            redirect: false
+          }
+          );
+          console.log(`create: ` + createPageTitle);
+          logseq.UI.showMsg(`create:` + createPageTitle);
+        });
+        //foreach JSON end
+
+        console.log(`#${pluginId}: JSON import done`);
+        logseq.UI.showMsg(`success: 作成が終わりました。`);//success message
+      }
+      jsonImport(settingJsonUrl);
+
+    } else {
+      console.log(`#${pluginId}: warning`);
+      logseq.UI.showMsg(`warning: プラグインの設定をおこなってください。`);//warning message
+    }
+    console.log(`#${pluginId}: open_dashboard end`);
   }
 };
 
