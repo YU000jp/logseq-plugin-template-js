@@ -12,13 +12,6 @@ export const settingUI = () => {
 [(contains? #{"DOING"} ?m)]]`,
             title: "Customize advanced-query",
             description: ``,
-        },
-        {
-            key: "jsonUrl",
-            type: "string",
-            default: ``,
-            title: "Converted .csv to .json",
-            description: `変換用サイトで、コピーしたURLを貼り付けてください。`,
         }
     ];
     logseq.useSettingsSchema(settingsTemplate);
