@@ -30,6 +30,9 @@
     - `manifest.json` https://github.com/logseq/marketplace/blob/master/packages/logseq-dev-theme/manifest.json
     - `icon.png` or other `icon.svg`
  1. Make a pull request. After posting, wait a few days for a response. They are checked, merged and published.
+ 
+## Link
+ - [Logseq Plugin Setup Guide](https://gist.github.com/xyhp915/bb9f67f5b430ac0da2629d586a3e4d69)
 
 ## Imported SDK
  - @logseq/libs https://logseq.github.io/plugins/
