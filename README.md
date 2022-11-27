@@ -22,6 +22,9 @@
 1. Build the plugin. Run `pnpm build`
 1. Have Logseq load the plugin in developer mode.
 
+![Animation6w12](https://user-images.githubusercontent.com/111847207/204119897-c237eabf-c538-4d24-ac72-c6735364119a.gif)
+
+
 ## How to publish
 - Once the plugin is complete, publish it to Logseq marketplace.
 1. Commit to the Github repo on GitHub desktop client.
