@@ -39,8 +39,8 @@
 - [logseq-plugins-in-action(Chinese document)](https://correctroad.gitbook.io/logseq-plugins-in-action/)
 
 ## Imported SDK
- - @logseq/libs https://logseq.github.io/plugins/
- - logseq-dateutils https://github.com/hkgnp/logseq-dateutils
+ - [@logseq/libs](https://logseq.github.io/plugins/)
+ - [logseq-dateutils](https://github.com/hkgnp/logseq-dateutils)
 
 ## Credit
  - https://github.com/hkgnp/logseqplugin-basic-template
