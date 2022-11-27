@@ -6,7 +6,6 @@
 
 1. GitHub desktop client <https://desktop.github.com/>
 1. Visual Studio Code <https://azure.microsoft.com/ja-jp/products/visual-studio-code/>
-1. pnpm <https://pnpm.io/ja/installation>
 1. node.js <https://pnpm.io/ja/cli/env>
 
 ## How to use
@@ -17,7 +16,9 @@
 ## Step
 
 1. Edit few items `LICENSE.md` and `package.json` on Visual Studio Code
-1. Launch a terminal by contextmenu from the same folder as the repository. Run `pnpm install`
+1. Launch a terminal by contextmenu from the same folder as the repository.
+1. Run `npm install -g pnpm`
+1. Run `pnpm install`
 1. Modules is installed and the development environment is ready.
 1. Edit the main script `src/index.js`
 1. Build the plugin. Run `pnpm build`
