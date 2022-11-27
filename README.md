@@ -35,7 +35,7 @@
 ## Link
 - [Logseq Plugin Setup Guide](https://gist.github.com/xyhp915/bb9f67f5b430ac0da2629d586a3e4d69)
 - [Logseq Plugin API docs](https://plugins-doc.logseq.com/)
-- [An Intro to Making Logseq Plugins ft. Sawhney](https://www.youtube.com/watch?v=57h7te3NvJg)
+- [An Intro to Making Logseq Plugins ft. Sawhney(YouTube)](https://www.youtube.com/watch?v=57h7te3NvJg)
 - [logseq-plugins-in-action(Chinese document)](https://correctroad.gitbook.io/logseq-plugins-in-action/)
 
 ## Imported SDK
