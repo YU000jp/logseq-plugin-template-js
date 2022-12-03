@@ -36,6 +36,7 @@
 1. Fork logseq/marketplace repository. <https://github.com/logseq/marketplace>
 1. In your forked repository, upload the required folders to `package` directory.
    - `manifest.json` <https://github.com/logseq/marketplace/blob/master/packages/logseq-dev-theme/manifest.json>
+      - If accessing external files, manifest.json: "effect" property to true (`"effect": true`) for unblock by CORS policy
    - `icon.png` or other `icon.svg`
 1. Make a pull request. After posting, wait a few days for a response. They are checked, merged and published.
 
