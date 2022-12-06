@@ -36,19 +36,22 @@
 - [ ] a clear README file, ideally with an image or gif showcase. (For more friendly to users, it is recommended to have English version description).
 - [ ] a license in the LICENSE file.
 
-- [x]  a valid CI workflow build action for Github releases. 
+- [x]  a valid CI workflow build action for Github releases.
+
 > This template is pre-filled, but requires personal filling. Sure to check files.
+
 - [ ] package.json
 - [ ] LICENCE (MIT LICENCE)
 
 ### Make a release in the repository on Github
+
 - [ ]  a release which includes a release zip pkg from a successful build.
 
 1. Open the release page from repository
 
 ![image](https://user-images.githubusercontent.com/111847207/206027638-99da2713-f674-4813-9644-a094a134479f.png)
 
-1. On the release page, create the tag `v1.0.0`. 
+1. On the release page, create the tag `v1.0.0`.
 1. Title should also be `v1.0.0`.
 
 ![image](https://user-images.githubusercontent.com/111847207/206028567-02e0d6b0-f2ff-4a53-b471-97d534732d19.png)
