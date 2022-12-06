@@ -1,6 +1,6 @@
 # logseq-plugin-template-js
 
-- Logseq plugins are mostly written in Typescript. It's not easy for beginners to learn, so I think it's better to learn **Javascript** in the beginning. Customize Logseq using `@logseq/libs`.
+> Logseq plugins are mostly written in Typescript. It's not easy for beginners to learn, so I think it's better to learn **Javascript** in the beginning. Customize Logseq using `@logseq/libs`.
 
 ## Required environment
 
@@ -24,21 +24,25 @@
 1. Build the plugin. Run `pnpm build`
 1. switch to Electron Developer Tools on Logseq (⌨️: Windows`Ctrl+Shift+I` or Mac`Cmd+Alt+I`)
 1. Have Logseq load the plugin in developer mode.
+1. repeat 6-9
 
 ![Animation6w12](https://user-images.githubusercontent.com/111847207/204119897-c237eabf-c538-4d24-ac72-c6735364119a.gif)
 
 ## How to publish
 
-- Once the plugin is complete, publish it to Logseq marketplace. Logseq marketplace has 5 checks requirement.
+> Once the plugin is complete, publish it to Logseq marketplace. Logseq marketplace has 5 checks requirement.
+
 - [ ] a legal package.json file.
 - [ ] a valid CI workflow build action for Github releases. (Optional for theme plugin only).
 - [ ] a release which includes a release zip pkg from a successful build.
 - [ ] a clear README file, ideally with an image or gif showcase. (For more friendly to users, it is recommended to have English version description).
 - [ ] a license in the LICENSE file.
 
+>　Prepared by this template
+
 - [x]  a valid CI workflow build action for Github releases.
 
-> This template is pre-filled, but requires personal filling. Sure to check files.
+> Requires personal settings. Sure to check files.
 
 - [ ] package.json
 - [ ] LICENCE (MIT LICENCE)
