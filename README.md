@@ -29,16 +29,40 @@
 
 ## How to publish
 
-- Once the plugin is complete, publish it to Logseq marketplace.
+- Once the plugin is complete, publish it to Logseq marketplace. Logseq marketplace has 5 checks requirement.
+- [ ] a legal package.json file.
+- [ ] a valid CI workflow build action for Github releases. (Optional for theme plugin only).
+- [ ] a release which includes a release zip pkg from a successful build.
+- [ ] a clear README file, ideally with an image or gif showcase. (For more friendly to users, it is recommended to have English version description).
+- [ ] a license in the LICENSE file.
 
-1. Commit to the Github repo on GitHub desktop client.
-1. Release with a tag like v.1.0.0 on your repository on Github. It takes about a minute for Github CI to finish working. Then two are added to the asset.
-1. Fork logseq/marketplace repository. <https://github.com/logseq/marketplace>
-1. In your forked repository, upload the required folders to `package` directory.
-   - `manifest.json` <https://github.com/logseq/marketplace/blob/master/packages/logseq-dev-theme/manifest.json>
+- [x]  a valid CI workflow build action for Github releases. 
+> This template is pre-filled, but requires personal filling. Sure to check files.
+- [ ] package.json
+- [ ] LICENCE (MIT LICENCE)
+
+### Make a release in the repository on Github
+- [ ]  a release which includes a release zip pkg from a successful build.
+
+1. Open the release page from repository
+
+![image](https://user-images.githubusercontent.com/111847207/206027638-99da2713-f674-4813-9644-a094a134479f.png)
+
+1. On the release page, create the tag `v1.0.0`. 
+1. Title should also be `v1.0.0`.
+
+![image](https://user-images.githubusercontent.com/111847207/206028567-02e0d6b0-f2ff-4a53-b471-97d534732d19.png)
+
+1. Github Actions are executed when you release.
+1. Compiled files are ready for release. It takes about a minute for Github CI to finish working. Then two are added to the asset.
+1. In order, the plug-in was ready.
+1. Fork logseq/marketplace repository <https://github.com/logseq/marketplace>
+1. In your forked repository, pull  2 files to `package` directory.
+   - `manifest.json` sample: <https://github.com/logseq/marketplace/blob/master/packages/logseq-dev-theme/manifest.json>
       - If accessing external files, manifest.json: "effect" property to true (`"effect": true`) for unblock by CORS policy
    - `icon.png` or other `icon.svg`
 1. Make a pull request. After posting, wait a few days for a response. They are checked, merged and published.
+1. it will be published to the marketplace later.
 
 ## Link
 
