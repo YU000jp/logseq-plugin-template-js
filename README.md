@@ -5,7 +5,6 @@
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-template-js)](https://github.com/YU000jp/logseq-plugin-template-js/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-template-js?color=blue)](https://github.com/YU000jp/logseq-plugin-template-js/blob/main/LICENSE)
 
-
 ## Required environment
 
 1. GitHub desktop client <https://desktop.github.com/>
