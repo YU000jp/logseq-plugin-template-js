@@ -2,6 +2,10 @@
 
 > Logseq plugins are mostly written in Typescript. It's not easy for beginners to learn, so I think it's better to learn **Javascript** in the beginning. Customize Logseq using `@logseq/libs`.
 
+[![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-template-js)](https://github.com/YU000jp/logseq-plugin-template-js/releases)
+[![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-template-js?color=blue)](https://github.com/YU000jp/logseq-plugin-template-js/blob/main/LICENSE)
+
+
 ## Required environment
 
 1. GitHub desktop client <https://desktop.github.com/>
