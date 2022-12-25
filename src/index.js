@@ -1,69 +1,92 @@
-import '@logseq/libs';
-import { getDateForPage } from 'logseq-dateutils';
+import '@logseq/libs'; //https://plugins-doc.logseq.com/
 import { logseq as PL } from "../package.json";
-import { settingUI } from './setting';
-const pluginId = PL.id;
+const pluginId = PL.id; //set plugin id from package.json
 
 
 /* main */
 const main = () => {
+  console.info(`#${pluginId}: MAIN`); //console
 
-  settingUI(); /* -setting */
-  console.info(`#${pluginId}: MAIN`); /* -plugin-id */
-  logseq.UI.showMsg(`add items at toolbar and contextmenu`); /* test message ==remove== */
 
-  /* CSS */
+  /* user setting */
+  // https://logseq.github.io/plugins/types/SettingSchemaDesc.html
+  const settingsTemplate = [
+    {
+      key: "advancedQuery",
+      type: "string",
+      inputAs: 'textarea',
+      default: `
+[:find (pull ?e [*]) 
+:where
+[?e :block/marker ?m]
+[(contains? #{"DOING"} ?m)]]
+`,
+      title: "Customize advanced-query",
+      description: ``,
+    }
+  ];
+  logseq.useSettingsSchema(settingsTemplate);
+
+
+  //test samples
+
+  /* dialog sample */
+  logseq.UI.showMsg(`add items at toolbar and contextmenu`);
+
+  /* CSS sample */
   logseq.provideStyle(String.raw`
     div#test {
       font-size: 20px;
     }
   `);
 
-  /* ContextMenuItem  */
+  /* contextmenu-item(select a bullet) sample */
   logseq.Editor.registerBlockContextMenuItem('🟢Open at right sidebar', async ({ uuid }) => {
-
-    /* todayDateInUserFormat Sample */
-    const userConfigs = await logseq.App.getUserConfigs();
-    const preferredDateFormat = userConfigs.preferredDateFormat;
-    const today = new Date();
-    const todayDateInUserFormat = getDateForPage(today, preferredDateFormat);
-    console.log(`#${pluginId}: ${todayDateInUserFormat}`);
-    /* end_sample */
-
     logseq.App.openInRightSidebar(uuid);
     logseq.UI.showMsg("🟢Open at right sidebar");
     console.log(`#${pluginId}: 🟢Open at right sidebar`);
   });
 
-  /* toolbarItem */
+  /* toolbar-item sample */
+  //for open_toolbar
   logseq.App.registerUIItem("toolbar", {
     key: pluginId,
     template: `
-    <div data-on-click="open_dashboard" style="font-size:20px">🔥</div>
+    <div data-on-click="open_toolbar" style="font-size:20px">🔥</div>
     `,
-  });/* For open_dashboard */
+  });
 
-  console.info(`#${pluginId}: loaded`);
+  //test samples end
+
+
+  console.info(`#${pluginId}: loaded`);//console
 };/* end_main */
 
 
-/* dashboard */
+
+/* on click open_toolbar */
 const model = {
-  async open_dashboard() {
-    console.info(`#${pluginId}: open_dashboard`);
-    logseq.UI.showMsg(`Open dashboard`);
+  async open_toolbar() {
+    console.info(`#${pluginId}: open_toolbar`);//console
 
-    //Advanced Query
-    const queryScript = logseq.settings.advancedQuery;
-    console.log(`#${pluginId}: queryScript ${queryScript}`); /* TODO */
+
+    //test message
+    logseq.UI.showMsg(`Open toolbar`);
+
+    //Advanced Query test sample
+    const queryScript = logseq.settings.advancedQuery;//from user setting
+    console.log(`#${pluginId}: queryScript ${queryScript}`);//console
     const queryResult = await logseq.DB.datascriptQuery(queryScript);
-    console.log(`#${pluginId}: Advanced Query result`);
-    console.log(queryResult);
-    logseq.UI.showMsg(`Advanced Query`);
+    console.log(`#${pluginId}: Advanced Query result`);//console
+    console.log(queryResult); //console return object
+
+    //test message
+    logseq.UI.showMsg(`Open toolbar end`);
 
 
-    console.log(`#${pluginId}: open_dashboard end`);
+    console.log(`#${pluginId}: open_toolbar end`);//console
   }
 };
+
 
 logseq.ready(model, main).catch(console.error);

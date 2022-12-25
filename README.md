@@ -18,7 +18,7 @@
 
 ## Step
 
-1. Edit few items `LICENSE.md` and `package.json` on Visual Studio Code
+1. Edit PLUGIN-AUTHOR and few items `LICENSE.md` and `package.json` on Visual Studio Code
 1. Launch a terminal by contextmenu from the same folder as the repository.
 1. Run `npm install -g pnpm`
 1. Run `pnpm install`

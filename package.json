@@ -1,7 +1,12 @@
 {
   "name": "logseq-plugin-template-js",
   "description": "logseq plugin template",
-  "author": "YU000jp",
+  "author": "PLUGIN-AUTHOR",
+  "logseq": {
+    "id": "logseq-plugin-template-js",
+    "title": "logseq-plugin-template-js",
+    "icon": "./icon.svg"
+  },
   "main": "dist/index.html",
   "targets": {
     "main": false
@@ -11,13 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@logseq/libs": "latest",
-    "logseq-dateutils": "^0.0.26"
-  },
-  "logseq": {
-    "id": "logseq-plugin-template-js",
-    "title": "logseq-plugin-template-js",
-    "icon": "./icon.svg"
+    "@logseq/libs": "latest"
   },
   "devDependencies": {
     "parcel": "latest"
